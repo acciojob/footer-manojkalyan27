@@ -1,47 +1,163 @@
-/* your code here */
-.top{
-	margin: 50px;
-	font-size: 40px;
-}
-
-.link-boxes{
-	display: flex;
-	margin: 50px;
-	padding: 10px;
-	justify-content: space-around;
-}
-*{
-	margin: 0px;
-	padding: 0px;
-}
 body{
-	background-color: #0e0e0e;
-	color: white;
+    background-color: black;
+    color: white;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-ul{
-	list-style-type: none;
-	
-	
+.content{
+    display: flex;
+    flex-direction: column;
 }
-ul>li:nth-child(1){
-	text-decoration: underline;
-	
-	
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.logo_name{
+    font-size: large;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.footer-body{
+    display: flex;
+    justify-content: space-between;
+
+}
+.media-icons{
+    display: flex;
+    gap: 15px;
 }
 a{
-	text-decoration: none;
-	color: white;
-	
-}
-.bottom-details{
-	background-color: #2c303a;
-	padding: 30px;
-/* 	display: inline-block; */
-	
+    text-decoration: none;
+    color: white;
 }
 
-.bottom-details>p:nth-child(2){
-	text-align: right;
-	margin-top: -20px;
+.link-boxes>a , .services>a , .Other-services>a , .contact>a {
+    font-weight: bold;
+    padding-left: 40px;
+
+}
+
+.link-boxes , .services , .Other-services , .contact {
+    position: relative;
+}
+
+.link-boxes>a::after, .services>a::after, .Other-services>a::after, .contact>a::after {
+    content : "";
+    position : absolute;
+    width : 30px;
+    height : 1px;
+    background-color: white;
+    top: 20px;
+    left: 40px;
+    
+  }
+
+.link-boxes>ul>li>a , .services>ul>li>a , .Other-services>ul>li>a , .contact>ul>li>a {
+    color: #CACACA;
+
+}
+.link-boxes>ul>li , .services>ul>li , .Other-services>ul>li , .contact>ul>li{
+    padding-top: 5px;
+}
+
+li{
+    list-style: none;
+}
+
+.bottom-details{
+    background-color: #2C303A;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    padding-top: 5px;
+    color: #B3B4B8;
+}
+
+/* 1. Mobile: 0-480px
+2. Tablet: 481-768px
+3. Laptop: 769px-1249px
+4. Desktop: 1250px and above */
+
+/* @media (min-width: 500px) {
+    .bottom-details{
+        width: 100%;
+    }
+
+    .footer-body{
+        padding-left: -10px;
+    }
+    
+} */
+
+
+@media (max-width: 768px) {
+    .footer-body {
+        flex-wrap: wrap; /* Enable wrapping for smaller screens */
+        justify-content: center; /* Center items when wrapping */
+    }
+    .top{
+        flex-direction: column;
+    }
+
+    .link-boxes,
+    .services,
+    .Other-services,
+    .contact {
+        flex: none; /* Remove flex-grow/shrink */
+        width: 45%; /* Make each section take about half width */
+        margin-bottom: 20px; /* Add spacing between rows */
+        text-align: center; /* Center-align text */
+    }
+
+    .top {
+        flex-wrap: wrap; /* Wrap the top section */
+        justify-content: center; /* Center elements */
+    }
+
+    .media-icons {
+        justify-content: center;
+        flex-wrap: wrap; /* Allow icons to wrap */
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-body {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+    }
+    .top{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link-boxes,
+    .services,
+    .Other-services,
+    .contact {
+        width: 100%; /* Full width for each section */
+        text-align: center;
+    }
+
+    .link-boxes > a,
+    .services > a,
+    .Other-services > a,
+    .contact > a {
+        padding-left: 20px;
+    }
+
+    .link-boxes > a::after,
+    .services > a::after,
+    .Other-services > a::after,
+    .contact > a::after {
+        left: 20px;
+    }
 }
